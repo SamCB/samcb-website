@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sam Collis-Bird</title>
+    <meta name="author" content="Sam Collis-Bird">
+    <meta name="description" content="Intro website to point you to places where Sam can be found around the web.">
+    <meta name="keywords" content="Sam,Collis-Bird,Software,Developer,Engineer,Programmer">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Oxygen+Mono&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="border"></div>
+      <div class="card-out">
+        <div class="card-in">
+          <div class="content">
+            <h1>Sam Collis-Bird</h1>
+            <p>
+              Hello, my name is Sam, software developer. I've worked and trained in a whole range of fields, including cloud computing, web application development and artificial intelligence.
+            </p>
+            <p>
+              If you want to see some of my work and credentials, take a look at the links below or get in contact with me via email.
+            </p>
+            <div class="links">
+              <div class="link so">
+                <a href="https://stackoverflow.com/story/scb"><img src="icons/so-icon.png" /></a>
+              </div>
+              <div class="link gh">
+                <a href="https://github.com/SamCB"><img src="icons/gh-icon.png" /></a>
+              </div>
+              <div class="link li">
+                <a href="https://www.linkedin.com/in/samcollisbird/"><img src="icons/li-icon.png" /></a>
+              </div>
+              <div class="link email">
+                <a href="#" onclick="showemail()"><img src="icons/email-icon.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div id="email-frame" class="hidden-email">
+            <p id="email"></p>
+          </div>
+          <div class="decoration"></div>
+        </div>
+        <div class="copyright">
+          ©2019 - Samuel Collis-Bird
+        </div>
+      </div>
+      <div class="border"></div>
+    </div>
+  </body>
+  <script>
+    let isHidden = true;
+    let frame = document.getElementById('email-frame');
+    let text = document.getElementById('email');
+    function showemail() {
+      if (isHidden) {
+        let email = getemail();
+        text.innerText = email;
+        frame.style.height = '40px';
+        isHidden = false;
+      } else {
+        frame.style.height = '0px';
+        isHidden = true;
+      }
+    }
+
+    let obfuscated = '0cdbgmciaio@1rmls..';
+    let key = [7,16,6,3,10,18,2,13,12,4,17,9,8,5,11,14,0,15,1];
+
+    function getemail() {
+      let unobfuscated = key.reduce(
+        function (acc, k, i) {
+          return setchar(acc, k, obfuscated.charAt(i));
+        },
+        ' '.repeat(obfuscated.length)
+      );
+      return unobfuscated;
+    }
+    function setchar(str, pos, c) {
+      return str.substr(0,pos) + c + str.substr(pos + 1);
+    }
+  </script>
+</html>
+
